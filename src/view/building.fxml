@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+
+<VBox fx:controller="controller.BuildingController" 
+        xmlns:fx="http://javafx.com/fxml" alignment="center" spacing="10"
+        styleClass="root">
+
+    <VBox spacing="30">    
+        <GridPane alignment="center_left" hgap="35" vgap="-10">
+            <ImageView GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.rowSpan="2">
+                <image><Image url="@building.png"/></image>
+            </ImageView>
+            <Text styleClass="heading" text="Lift System" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <Text styleClass="subheading" text="Building" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        </GridPane>
+        
+        <!--CORE FUNCTIONALITY-->
+        <!--<HBox alignment="center">
+            <ListView fx:id="liftsLv" items="${controller.building.lifts}" prefWidth="200" prefHeight="80"/>
+        </HBox>-->
+        
+        <!--ADVANCED FUNCTIONALITY-->
+        <TableView fx:id="liftsTv" items="${controller.building.lifts}" prefWidth="450" prefHeight="110">
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+            <columns>
+                <TableColumn fx:id="liftClm" text="Lift"/>
+                <TableColumn fx:id="levelClm" styleClass="levelLayout" text="Level"/>
+                <TableColumn fx:id="directionClm" text="Direction"/>
+                <TableColumn fx:id="passengersClm" text="Passengers"/>
+                <TableColumn fx:id="waitingClm" text="Waiting"/>
+            </columns>
+        </TableView>
+    
+        <HBox alignment="center" spacing="10">
+            <Button text="Call Lift" onAction="#handleCallLift"/>
+            <Button fx:id="viewLiftBtn" disable="true" text="View Lift" onAction="#handleViewLift"/>
+            <Button text="People" onAction="#handleViewPeople"/>
+            <Button text="Exit" onAction="#handleExit"/>
+        </HBox>
+    </VBox>
+    
+    <HBox alignment="center">
+        <Slider fx:id="delaySl" prefWidth="300" min="1" max="10" snapToTicks="true" majorTickUnit="1" minorTickCount="0" showTickMarks="true" showTickLabels="true"/>
+        <Text styleClass="time" text="${'Time: ' + controller.building.time}"/>
+    </HBox>
+    
+    <stylesheets><URL value="@style.css"/></stylesheets>
+    
+</VBox>

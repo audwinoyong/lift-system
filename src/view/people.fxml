@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+
+<VBox fx:controller="controller.PeopleController" 
+        xmlns:fx="http://javafx.com/fxml" alignment="center" spacing="25"
+        styleClass="root">
+    
+    <GridPane alignment="center_left" hgap="35" vgap="-10">
+        <ImageView GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.rowSpan="2">
+            <image><Image url="@building.png"/></image>
+        </ImageView>
+        <Text styleClass="heading" text="Lift System" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <Text styleClass="subheading" text="People" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    </GridPane>
+    
+    <TableView fx:id="peopleTv" items="${controller.building.people}" prefWidth="450" prefHeight="200">
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+        </columnResizePolicy>
+        <columns>
+            <TableColumn fx:id="idClm" text="ID"/>
+            <TableColumn fx:id="nameClm" text="Name"/>
+            <TableColumn fx:id="levelClm" text="Level"/>
+            <TableColumn fx:id="destinationClm" text="Destination"/>
+            <TableColumn fx:id="aboardClm" text="Aboard"/>
+        </columns>
+    </TableView>
+    
+    <HBox alignment="center">
+        <Button text="Close" onAction="#handleClose"/>
+    </HBox>  
+    
+    <stylesheets><URL value="@style.css"/></stylesheets>
+            
+</VBox>

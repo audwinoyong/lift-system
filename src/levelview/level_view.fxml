@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.Rectangle?>
+
+<fx:root type="javafx.scene.layout.HBox"
+         xmlns:fx="http://javafx.com/fxml" 
+         styleClass="levelView">
+    
+    <StackPane>
+        <children>
+            <Rectangle height="50" width="50" fill="transparent"/>
+            <Text fx:id="bottomTxt"/>
+        </children>
+    </StackPane>
+    <StackPane styleClass="currentLevel">
+        <children>
+            <Rectangle height="50" width="50" fill="transparent"/>
+            <Text fx:id="levelTxt"/>
+        </children>
+    </StackPane>
+    <StackPane>
+        <children>
+            <Rectangle height="50" width="50" fill="transparent"/>
+            <Text fx:id="topTxt"/>
+        </children>
+    </StackPane>
+
+    <stylesheets><URL value="@/view/style.css"/></stylesheets>
+    
+</fx:root>
+

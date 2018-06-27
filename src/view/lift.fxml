@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+
+<?import levelview.*?>
+
+<VBox fx:controller="controller.LiftController" 
+        xmlns:fx="http://javafx.com/fxml" alignment="center" spacing="20"
+        styleClass="root">
+    
+    <GridPane alignment="center_left" hgap="35" vgap="-10">
+        <ImageView GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.rowSpan="2">
+            <image><Image url="@building.png"/></image>
+        </ImageView>
+        <Text styleClass="heading" text="Lift System" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <Text styleClass="subheading" text="${controller.lift}" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    </GridPane>
+    
+    <!--CORE FUNCTIONALITY-->
+    <!--<GridPane alignment="center" hgap="20" vgap="5">
+        <Label text="Current Level:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Text text="${controller.lift.level}" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <Label text="Bottom Level:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <Text text="${controller.lift.bottom}" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <Label text="Top Level:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <Text text="${controller.lift.top}" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <Text styleClass="direction" text="${controller.lift.directionString}" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.rowSpan="3"/>  
+    </GridPane>-->
+    
+    <!--BONUS FUNCTIONALITY-->    
+    <HBox alignment="center" spacing="20">
+        <LevelView bottom="${controller.lift.bottom}" top="${controller.lift.top}" level="${controller.lift.level}"/>
+        <Text styleClass="direction" text="${controller.lift.directionString}"/>
+    </HBox>
+        
+    <GridPane alignment="center" vgap="5">
+        <Text text="Passengers" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <ListView items="${controller.lift.passengers}" prefWidth="225" prefHeight="95" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <Text text="Queue" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <ListView items="${controller.lift.queue}" prefWidth="225" prefHeight="95" GridPane.columnIndex="1" GridPane.rowIndex="1"/>        
+    </GridPane>
+    
+    <HBox alignment="center">
+        <Button text="Close" onAction="#handleClose"/>
+    </HBox>  
+    
+    <stylesheets><URL value="@style.css"/></stylesheets>
+            
+</VBox>
