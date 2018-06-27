@@ -4,4 +4,8 @@ JavaFX application of Lift System created for **48024 Applications Programming**
 It implements basic object-oriented design, GUI and MVC. Written in Java and FXML languages.
 
 ## Preview
-![Building Window](preview/building_window.png)
+![Building Window](previews/building_window.png)
+
+![Call Lift Window](previews/call_lift_window.png)
+
+![Call Lift Window](previews/lift_window.png)
